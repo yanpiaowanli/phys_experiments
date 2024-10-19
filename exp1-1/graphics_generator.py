@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # 读取数据
-df = pd.read_csv('exp1_result.csv')
+df = pd.read_csv('exp1-1_result.csv')
 
 # 将 'a' 列转换为浮点数，并将单位从cm/s^2转换为m/s^2
 df['a'] = (df['a'] * (10**-2)).astype(float)

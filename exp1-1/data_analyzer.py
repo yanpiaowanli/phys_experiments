@@ -1,6 +1,8 @@
 import pandas as pd
 
-df = pd.read_csv('exp1.csv')
+
+path = 'exp1-1.csv'
+df = pd.read_csv('exp1-1.csv')
 
 # 常量定义
 S = 70.00  # 光电门距离s 单位cm
@@ -20,4 +22,5 @@ df['F'] = df['m'] * G * (10**-3)  # 单位: N
 # 将结果精确到四位有效数字
 df = df.applymap(lambda x: f'{x:.4g}' if isinstance(x, (int, float)) else x)
 
-df.to_csv('exp1_result.csv', index=False)
+# 保存结果
+df.to_csv(path.replace('.csv', '_result.csv'), index=False)
