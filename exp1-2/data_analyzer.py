@@ -1,16 +1,16 @@
 import pandas as pd
 
 # 常量定义
-S = 70.00  # 光电门距离s 单位cm
-L = 5.00  # 遮光板宽度l 单位cm
-G = 9.801  # 重力加速度g 单位m/s^2
-M1 = 142.35  # 系统1（小滑块）质量 单位g
-M2 = 231.19  # 系统2（大滑块）质量 单位g
-Mw = 10.00  # 施力物质量 单位g
+S = 70.00    # 光电门距离s 单位cm
+L = 5.00     # 遮光板宽度l 单位cm
+G = 9.801    # 重力加速度g 单位m/s^2
+M1 = 132.35  # 小滑块质量m1 单位g
+M2 = 221.19  # 大滑块质量m2 单位g
+Mw = 10.00   # 施力物质量mw 单位g
 
 # 路径定义
-path1 = 'exp1-2-1.csv'
-path2 = 'exp1-2-2.csv'
+PATH_1 = 'exp1-2-1.csv'  # 实验1-2-1小滑块数据路径
+PATH_2 = 'exp1-2-2.csv'  # 实验1-2-2大滑块数据路径
 
 
 def calc_deviation(m, path):
@@ -31,7 +31,7 @@ def calc_deviation(m, path):
     avg_a = df['a'].mean()
 
     # 计算理论外力和实际外力
-    f_ = m * (10 ** -3) * avg_a * (10 ** -2)  # 理论外力 单位: N
+    f_ = (m + Mw) * (10 ** -3) * avg_a * (10 ** -2)  # 理论外力 单位: N
     f = Mw * (10 ** -3) * G  # 实际外力 单位: N
 
     # 计算误差
@@ -46,5 +46,5 @@ def calc_deviation(m, path):
 
 
 # 计算误差
-calc_deviation(m=M1, path=path1)
-calc_deviation(m=M2, path=path2)
+calc_deviation(m=M1, path=PATH_1)
+calc_deviation(m=M2, path=PATH_2)

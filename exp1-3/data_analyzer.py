@@ -8,11 +8,11 @@ H = 2.00  # 垫块高度h 单位cm
 M_ = 221.19  # 大滑块质量 单位g
 
 # 路径定义
-PATH = 'exp1-3.csv'
+PATH = 'exp1-3.csv'  # 实验1-3数据路径
 
 
 def analyze(path):
-    """ 计算误差 """
+    """ 计算并填入表格 """
     # 读取数据
     df = pd.read_csv(path)
 
