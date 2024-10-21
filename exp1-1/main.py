@@ -1,20 +1,20 @@
-import data_analyzer
-import graphics_generator
-from config import DATA_PATH, RESULT_PATH
+import scripts.data_analyzer as da
+import scripts.charting_toolkit as ct
+from data.config import DATA_PATH, RESULT_PATH, OUTPUT_PATH
 
 
 if __name__ == '__main__':
     # 预处理数据，填入表格
-    data_analyzer.preprocess(path=DATA_PATH)
+    da.preprocess(path=DATA_PATH)
 
     # 预处理数据，对表格数据进一步处理
-    graphics_generator.preprocess(path=RESULT_PATH)
+    ct.preprocess(path=RESULT_PATH)
 
     # 生成图表
-    graphics_generator.generate_chart()
+    ct.generate_chart(path=OUTPUT_PATH)
 
     # 计算斜率
-    graphics_generator.calc_slope()
+    ct.calc_slope()
 
     # 计算误差
-    graphics_generator.calc_deviation()
+    ct.calc_deviation()

@@ -1,8 +1,20 @@
+import sys
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-from config import M_
+
+# 获取当前文件目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 获取项目根目录
+project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+
+# 将项目根目录添加到sys.path
+sys.path.append(project_root)
+
+from data.config import M_
 
 
 # 全局变量
@@ -25,7 +37,7 @@ def preprocess(path):
     df_avg = df.groupby(df.index // 3).mean()
 
 
-def generate_chart():
+def generate_chart(path):
     """ 生成图表 """
     # 绘制 F-a 图像
     plt.plot(df_avg['a'], df_avg['F'], marker='+')
@@ -34,7 +46,8 @@ def generate_chart():
     plt.title('F - a Graph')
     plt.grid(True)
     plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%.3f'))
-    plt.show()
+    plt.savefig(path)
+    plt.close()
 
 
 def calc_slope():
@@ -46,6 +59,10 @@ def calc_slope():
     slope, intercept = np.polyfit(df_avg['a'], df_avg['F'], 1)
     print(f'The slope of the F - a graph is: {slope}')
     print(f'The intercept of the F - a graph is: {intercept}')
+    if intercept > 0:
+        print(f'The equation of the F - a graph is: F = {slope:.4g} * a + {intercept:.4g}')
+    else:
+        print(f'The equation of the F - a graph is: F = {slope:.4g} * a - {abs(intercept):.4g}')
 
 
 def calc_deviation():

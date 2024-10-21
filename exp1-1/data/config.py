@@ -5,5 +5,6 @@ G = 9.801  # 重力加速度g 单位m/s^2
 M_ = 157.35  # 真实系统质量 单位g
 
 # 路径定义
-DATA_PATH = 'exp1-1.csv'
-RESULT_PATH = 'exp1-1_result.csv'
+DATA_PATH = 'data/exp1-1.csv'
+RESULT_PATH = 'data/exp1-1_result.csv'
+OUTPUT_PATH = 'output/fig.png'

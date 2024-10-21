@@ -1,5 +1,17 @@
+import sys
+import os
 import pandas as pd
-from config import L, S, G
+
+# 获取当前文件目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# 获取项目根目录
+project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+
+# 将项目根目录添加到sys.path
+sys.path.append(project_root)
+
+from data.config import L, S, G
 
 # 单位转换常量
 MS_TO_S: float = 10 ** -3
@@ -20,7 +32,7 @@ def preprocess(path):
     df['v1'] = L / df['t1']  # 单位: cm/s
     df['v2'] = L / df['t2']  # 单位: cm/s
     df['a'] = (df['v2'] ** 2 - df['v1'] ** 2) / (2 * S)  # 单位: cm/s^2
-    df['F'] = df['m'] * G_TO_KG * G  # 单位: N
+    df['F'] = (df['m'] * G_TO_KG) * G  # 单位: N
 
     # 将结果精确到四位有效数字
     df = df.applymap(lambda x: f'{x:.4g}' if isinstance(x, (int, float)) else x)
