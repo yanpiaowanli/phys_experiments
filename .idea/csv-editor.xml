@@ -10,6 +10,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\exp1-1\exp1-1_result.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\exp1-1\output\exp1-1_result.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\exp1-2\output\exp1-2-1_result.csv">
           <value>
             <Attribute>
