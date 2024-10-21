@@ -7,13 +7,10 @@ from matplotlib.ticker import FormatStrFormatter
 
 # 获取当前文件目录
 current_dir = os.path.dirname(os.path.abspath(__file__))
-
 # 获取项目根目录
 project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
-
 # 将项目根目录添加到sys.path
 sys.path.append(project_root)
-
 from data.config import M_
 
 
@@ -60,9 +57,9 @@ def calc_slope():
     print(f'The slope of the F - a graph is: {slope}')
     print(f'The intercept of the F - a graph is: {intercept}')
     if intercept > 0:
-        print(f'The equation of the F - a graph is: F = {slope:.4g} * a + {intercept:.4g}')
+        print(f'The equation of the graph is: F = {slope:.4g} * a + {intercept:.4g}')
     else:
-        print(f'The equation of the F - a graph is: F = {slope:.4g} * a - {abs(intercept):.4g}')
+        print(f'The equation of the graph is: F = {slope:.4g} * a - {abs(intercept):.4g}')
 
 
 def calc_deviation():

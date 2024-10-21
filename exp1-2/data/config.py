@@ -6,4 +6,4 @@ M: list[float] = [132.35, 221.19]  # 滑块质量m 单位g
 Mw: float = 10.00  # 施力物质量mw 单位g
 
 # 路径定义
-DATA_PATH: list[str] = ['exp1-2-1.csv', 'exp1-2-2.csv']  # 实验数据路径：小滑块数据路径，大滑块数据路径
+DATA_PATH: list[str] = ['data/' + i for i in ['exp1-2-1.csv', 'exp1-2-2.csv']]  # 实验数据路径：小滑块数据路径，大滑块数据路径

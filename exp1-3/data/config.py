@@ -6,5 +6,6 @@ H = 2.00  # 垫块高度h 单位cm
 M_ = 221.19  # 大滑块质量 单位g
 
 # 路径定义
-DATA_PATH = 'exp1-3.csv'  # 实验1-3数据路径
-RESULT_PATH = 'exp1-3_result.csv'  # 实验1-3结果路径
+DATA_PATH = 'data/exp1-3.csv'  # 实验1-3数据路径
+RESULT_PATH = 'output/exp1-3_result.csv'  # 实验1-3结果输出路径
+OUTPUT_PATH = 'output/fig1-3.png'  # 实验1-3图表输出路径

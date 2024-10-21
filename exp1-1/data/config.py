@@ -6,5 +6,5 @@ M_ = 157.35  # 真实系统质量 单位g
 
 # 路径定义
 DATA_PATH = 'data/exp1-1.csv'
-RESULT_PATH = 'data/exp1-1_result.csv'
-OUTPUT_PATH = 'output/fig.png'
+RESULT_PATH = 'output/exp1-1_result.csv'
+OUTPUT_PATH = 'output/fig1-1.png'

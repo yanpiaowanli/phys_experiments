@@ -1,5 +1,14 @@
+import sys
+import os
 import pandas as pd
-from config import L_width
+
+# 获取当前文件目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 获取项目根目录
+project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+# 将项目根目录添加到sys.path
+sys.path.append(project_root)
+from data.config import L_width
 
 # 单位转换常量
 MS_TO_S = 10 ** -3
@@ -23,4 +32,5 @@ def preprocess(path):
     df = df.applymap(lambda x: f'{x:.4g}' if isinstance(x, (int, float)) else x)
 
     # 保存结果
-    df.to_csv(path.replace('.csv', '_result.csv'), index=False)
+    output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
+    df.to_csv(output_path, index=False)

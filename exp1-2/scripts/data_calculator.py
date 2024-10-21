@@ -1,5 +1,14 @@
+import sys
+import os
 import pandas as pd
-from config import S, L, G, Mw
+
+# 获取当前文件的目录
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 获取项目根目录
+project_root = os.path.abspath(os.path.join(current_dir, '..', '..'))
+# 将项目根目录添加到sys.path
+sys.path.append(project_root)
+from data.config import S, L, G, Mw
 
 # 单位转换常量
 MS_TO_S: float = 10 ** -3
@@ -8,12 +17,7 @@ G_TO_KG: float = 10 ** -3
 
 
 def calc_deviation(m: float, path: str) -> None:
-    """计算误差
-
-    参数:
-        m (float): 滑块质量，单位为克
-        path (str): 包含实验数据的CSV文件路径
-    """
+    """ 计算误差 """
     try:
         # 读取数据
         df = pd.read_csv(path)
@@ -42,6 +46,7 @@ def calc_deviation(m: float, path: str) -> None:
         df = df.applymap(lambda x: f'{x:.4g}' if isinstance(x, (int, float)) else x)
 
         # 保存结果
-        df.to_csv(path.replace('.csv', '_result.csv'), index=False)
+        output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
+        df.to_csv(output_path, index=False)
     except Exception as e:
         print(f"An error occurred: {e}")
