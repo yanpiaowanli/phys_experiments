@@ -9,4 +9,4 @@ This contains 3 sub-experiments, which I won't waste any time trying to describe
 ### Exp 1-1
 ### Exp 1-2
 ### Exp 1-3
-The `format` function in the code is still incomplete. Bug exists. Hard to write the logic, so I won't fix it.
+Recheck the sig figs of the data. They may be wrong.
