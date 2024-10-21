@@ -12,6 +12,8 @@
     <option name="namespacePackageFolders">
       <list>
         <option value="$MODULE_DIR$/exp1-1" />
+        <option value="$MODULE_DIR$/exp1-2" />
+        <option value="$MODULE_DIR$/exp1-3" />
       </list>
     </option>
   </component>
