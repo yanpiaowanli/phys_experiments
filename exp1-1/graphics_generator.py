@@ -2,10 +2,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.ticker import FormatStrFormatter
-from data_analyzer import M_
+from config import M_
 
-# 路径定义
-PATH = 'exp1-1_result.csv'  # 实验1-1数据路径
 
 # 全局变量
 df_avg = None  # 用于存储每三行数据的平均值
@@ -58,13 +56,3 @@ def calc_deviation():
     # 计算m的误差
     deviation = abs((M_ - slope * (10 ** 3)) / M_) * 100
     print(f'The deviation of system mass is: {deviation:.2g}%')
-
-
-# 预处理数据
-preprocess(path=PATH)
-# 生成图表
-generate_chart()
-# 计算斜率
-calc_slope()
-# 计算误差
-calc_deviation()
