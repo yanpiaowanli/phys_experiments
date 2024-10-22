@@ -33,10 +33,13 @@ def calc_deviation(m: float, path: str) -> None:
 
         # 计算a的平均值
         avg_a = df['a'].mean()
+        print(f'The average acceleration is: {avg_a:.4g} cm/s^2')
 
         # 计算理论外力和实际外力
         f_ = (m + Mw) * G_TO_KG * avg_a * CM_TO_M  # 理论外力 单位: N
+        print(f'The theoretical force is: {f_:.4g} N')
         f = Mw * G_TO_KG * G  # 实际外力 单位: N
+        print(f'The actual force is: {f:.4g} N')
 
         # 计算误差
         deviation = abs((f - f_) / f) * 100
@@ -48,5 +51,7 @@ def calc_deviation(m: float, path: str) -> None:
         # 保存结果
         output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
         df.to_csv(output_path, index=False)
+
+        print('\n')
     except Exception as e:
         print(f"An error occurred: {e}")
