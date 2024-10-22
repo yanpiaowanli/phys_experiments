@@ -68,9 +68,11 @@ def calc_deviation():
     """ 计算误差 """
     # 根据图像斜率计算加速度
     a = slope / 2  # 单位: m/s^2
+    print(f'The theoretical acceleration is: {a:.4g} m/s^2')
 
     # 计算真实加速度
     a_ = G * (H / L_dist)  # 单位: m/s^2
+    print(f'The actual acceleration is: {a_:.4g} m/s^2')
 
     # 计算a的误差
     deviation = abs((a_ - a) / a_) * 100
