@@ -1,7 +1,9 @@
+import warnings
 import scripts.data_calculator as dc
 import scripts.charting_toolkit as ct
 from data.config import DATA_PATH, RESULT_PATH, OUTPUT_PATH
 
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 if __name__ == '__main__':
     # 预处理数据，填入表格
