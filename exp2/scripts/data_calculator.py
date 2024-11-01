@@ -38,8 +38,9 @@ def preprocess_c1(path):
         n_delta_values.append(n_delta)
     df['n_delta'] = n_delta_values
 
-    # 将结果精确到四位有效数字
-    df = df.applymap(lambda x: f'{x:.4g}' if isinstance(x, (int, float)) else x)
+    # 格式化数值，保留四位有效数字
+    df['ni_avg'] = df['ni_avg'].map(lambda x: format(x, '.3f'))
+    df['n_delta'] = df['n_delta'].map(lambda x: format(x, '.3f'))
 
     # 保存结果
     output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
@@ -70,12 +71,9 @@ def preprocess_c2(path):
     df['d_real'] = df['di'] - D0
     df['d_avg'] = df['d_real'].mean()
 
-    # 将结果精确到三位有效数字
-    df = df.applymap(lambda x: f'{x:.3g}' if isinstance(x, (int, float)) else x)
-
     # 保存结果
     output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
-    df.to_csv(output_path, index=False)
+    df.to_csv(output_path, index=False, float_format='%.3g')
 
     # 计算d_real的标准差
     df['d_real'] = df['d_real'].astype(float)
