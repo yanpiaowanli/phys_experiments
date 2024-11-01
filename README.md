@@ -10,3 +10,8 @@ This contains 3 sub-experiments, which I won't waste any time trying to describe
 ### Exp 1-2
 ### Exp 1-3
 Recheck the sig figs of the data. They may be wrong.
+
+## Exp 2 Calculation of the Young's Modulus of a Wire
+n_delta in result chart 1 is duplicated due to data processing, unique it yourself.
+Same as d_avg in result chart 2.
+Recheck the sig figs of the data. They may be wrong.
