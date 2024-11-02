@@ -42,14 +42,19 @@ def generate_chart(result_path, output_path):
     fit_line = slope * df['m'] + intercept
     plt.plot(df['m'], fit_line, color='blue')
     if intercept >= 0:
-        print(f'Fit Line: n_avg = {slope:.3g} × M + {intercept:.3g}')
+        s = f'Fit Line: n_avg = {slope:.3g} × M + {intercept:.3g}'
+        plt.legend([s], loc='upper left')
+        print(s)
     else:
-        print(f'Fit Line: n_avg = {slope:.3g} × M - {abs(intercept):.3g}')
+        s = f'Fit Line: n_avg = {slope:.3g} × M - {abs(intercept):.3g}'
+        plt.legend([s], loc='upper left')
+        print(s)
 
     # 设置坐标轴刻度标签格式（均为3位有效数字）
     plt.gca().xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     plt.gca().yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
     plt.savefig(output_path)
+
     print(f'The n-M graph saved to ./{output_path}')
     plt.close()
 
