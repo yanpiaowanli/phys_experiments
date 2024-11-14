@@ -91,32 +91,32 @@ def calculate_c2(path, k, I0):
     # 计算金属圆筒转动惯量理论值I2'
     I2_ = 1/8 * M_barrel * ((D1_avg * CM_TO_M) ** 2 + (D2_avg * CM_TO_M) ** 2)
     print(f"The theoretical value of I2' is {I2_:.4g} kg*m^2")
-    df.at[0, 'I_thr'] = I2_
+    df.at[0, 'I_thr'] = float('%.4g' % I2_)
 
     # 计算球体转动惯量理论值I3'
     I3_ = 1/10 * M_sphere * (D_avg * CM_TO_M) ** 2
     print(f"The theoretical value of I3' is {I3_:.4g} kg*m^2")
-    df.at[1, 'I_thr'] = I3_
+    df.at[1, 'I_thr'] = float('%.4g' % I3_)
 
     # 计算金属圆筒转动惯量实验值I2
     I2 = k * T2_avg ** 2 / (4 * math.pi ** 2) - I0
     print(f"The experimental value of I2 is {I2:.4g} kg*m^2")
-    df.at[0, 'I_exp'] = I2
+    df.at[0, 'I_exp'] = float('%.4g' % I2)
 
     # 计算球体转动惯量实验值I3
     I3 = k * T3_avg ** 2 / (4 * math.pi ** 2) - Iz
     print(f"The experimental value of I3 is {I3:.4g} kg*m^2")
-    df.at[1, 'I_exp'] = I3
+    df.at[1, 'I_exp'] = float('%.4g' % I3)
 
     # 计算金属圆筒转动惯量相对误差e2
     e2 = abs(I2 - I2_) / I2_ * 100
     print(f"The relative error of I2 is {e2:.2g}%")
-    df.at[0, 'e'] = e2
+    df.at[0, 'e'] = '%.2g' % e2 + '%'
 
     # 计算球体转动惯量相对误差e3
     e3 = abs(I3 - I3_) / I3_ * 100
     print(f"The relative error of I3 is {e3:.2g}%")
-    df.at[1, 'e'] = e3
+    df.at[1, 'e'] = '%.2g' % e3 + '%'
 
     # 保存数据表格
     output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
@@ -138,27 +138,27 @@ def calculate_c3(path, k):
     # 计算金属杆及支座转动惯量实验值I4
     I4 = k * T4_avg ** 2 / (4 * math.pi ** 2)
     print(f"The experimental value of I4 is {I4:.4g} kg*m^2")
-    df.at[0, 'I4'] = I4
+    df.at[0, 'I4'] = '%.4g' % I4
 
     # 计算金属杆及砝码转动周期均值T_avg
     for i in range(5):
         T_avg = df['T'].iloc[i * 3:(i + 1) * 3].mean()
-        df.at[i, 'T_avg'] = T_avg
+        df.at[i, 'T_avg'] = float('%.5g' % T_avg)
 
     # 计算金属杆及砝码转动惯量实验值I_exp
     for i in range(5):
         I_exp = k * df['T_avg'].iloc[i] ** 2 / (4 * math.pi ** 2) - I4
-        df.at[i, 'I_exp'] = I_exp
+        df.at[i, 'I_exp'] = float('%.4g' % I_exp)
 
     # 计算金属杆及砝码转动惯量理论值I_thr
     for i in range(5):
         I_thr = I5_ + M_2 * (df['x'].iloc[i] * CM_TO_M) ** 2
-        df.at[i, 'I_thr'] = I_thr
+        df.at[i, 'I_thr'] = float('%.4g' % I_thr)
 
     # 计算金属杆及砝码转动惯量相对误差e
     for i in range(5):
         e = abs(df['I_exp'].iloc[i] - df['I_thr'].iloc[i]) / df['I_thr'].iloc[i] * 100
-        df.at[i, 'e'] = e
+        df.at[i, 'e'] = '%.2g' % e + '%'
 
     # 保存数据表格
     output_path = os.path.join('output', os.path.basename(path).replace('.csv', '_result.csv'))
