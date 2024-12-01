@@ -14,7 +14,7 @@ Before you start, I must remind you that **you should not use the scripts when y
 ## Fill in the data
 1. Open the `data` folder in the explorer.
 2. Fill in the data in the `config.py` file using notepad. The data should be in the same format as the example data.
-3. Fill in the data in the csv files.
+3. Fill in the data in the csv files using **EXCEL**, or **NOTEPAD**, **NOT** **WPS**. After that, **SAVE** and **QUIT**.
 
 ## Run the scripts
 1. Open exp folder in explorer, enter `cmd` in the address bar, and press Enter. This will open a terminal in the folder.
