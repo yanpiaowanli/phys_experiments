@@ -10,6 +10,12 @@ Before you start, I must remind you that **you should not use the scripts when y
 1. Install Python 3.8 or later.
 2. Download this repo.
 3. Install the required packages by running `pip install -r requirements.txt`. If you don't have pip, make sure you have successfully installed Python 3.8 or later first. If it still doesn't work, try rebooting your computer.
+
+## Fill in the data
+1. Open the `data` folder in the explorer.
+2. Fill in the data in the `config.py` file using notepad. The data should be in the same format as the example data.
+3. Fill in the data in the csv files.
+
 ## Run the scripts
 1. Open exp folder in explorer, enter `cmd` in the address bar, and press Enter. This will open a terminal in the folder.
 2. Run the script by running `python main.py` in the terminal.
