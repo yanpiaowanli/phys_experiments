@@ -21,11 +21,6 @@ Before you start, I must remind you that **you should not use the scripts when y
 2. Run the script by running `python main.py` in the terminal.
 
 ## Exp 1 Verification of Newton's Second Law
-This contains 3 sub-experiments, which I won't waste any time trying to describe in English. We will only mention some of the bugs that appear in my code.
-
-### Exp 1-1
-### Exp 1-2
-### Exp 1-3
 Recheck the sig figs of the data. Some of them may be wrong.
 
 ## Exp 2 Calculation of the Young's Modulus of a Wire
@@ -39,3 +34,6 @@ Recheck the sig figs of the data. Some of them may be wrong.
 
 ## Exp 4 Wheatstone bridge method for measuring the resistance
 Recheck the sig figs of the data. Some of them may be wrong.
+
+## Exp 5 The use of the oscilloscope
+This does not need any data processing in my opinion.
