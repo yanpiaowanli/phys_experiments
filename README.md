@@ -37,3 +37,6 @@ Recheck the sig figs of the data. Some of them may be wrong.
 
 ## Exp 5 The use of the oscilloscope
 This does not need any data processing in my opinion.
+
+## Exp 8 RLC series circuit
+This is an experimental script.
