@@ -50,8 +50,8 @@ def draw_3_scatter_plot(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
         plt.plot(x_new, y_smooth, label=f'{label} fit')
 
     plt.title(f"U - f Scatter Plot")
-    plt.xlabel("U / V")
-    plt.ylabel("f / Hz")
+    plt.xlabel("f / Hz")
+    plt.ylabel("U / V")
     plt.legend()
     file_name = f"3-{os.path.splitext(os.path.basename(data_paths[0]))[0]}.png"
     plt.savefig(os.path.join(output_dir, file_name))
