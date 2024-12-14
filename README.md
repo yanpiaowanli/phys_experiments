@@ -40,3 +40,6 @@ This does not need any data processing in my opinion.
 
 ## Exp 8 RLC series circuit
 This is an experimental script.
+
+## Exp 9 Frequency characteristics of the RLC series circuit
+This is an experimental script.
