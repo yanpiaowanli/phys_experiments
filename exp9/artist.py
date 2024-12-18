@@ -57,3 +57,32 @@ def draw_3_scatter_plot(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
     plt.savefig(os.path.join(output_dir, file_name))
     plt.close()
     plt.show()
+
+
+def draw_3_scatter_plot_2(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
+    """ Draw a scatter plot from multiple csv files """
+    plt.figure()
+
+    for data_path in data_paths:
+        data = pd.read_csv(data_path)
+        data['f'] = data['f'] / 500
+        data['Ur'] = data['Ur'] / data['Ur'].max()
+
+        x = data.iloc[:, col_idx_x]
+        y = data.iloc[:, col_idx_y]
+        label = os.path.splitext(os.path.basename(data_path))[0]
+        plt.scatter(x, y, marker='+', label=label)
+
+        x_new = np.linspace(x.min(), x.max(), 300)
+        spl = make_interp_spline(x, y, k=3)
+        y_smooth = spl(x_new)
+        plt.plot(x_new, y_smooth, label=f'{label} fit')
+
+    plt.title(f"Oscillation Scatter Plot")
+    plt.xlabel("ω/ω0")
+    plt.ylabel("I(ω)/I(ω0)")
+    plt.legend()
+    file_name = f"new.png"
+    plt.savefig(os.path.join(output_dir, file_name))
+    plt.close()
+    plt.show()
