@@ -49,7 +49,6 @@ def draw_3_scatter_plot(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
         y_smooth = spl(x_new)
         plt.plot(x_new, y_smooth, label=f'{label} fit')
 
-    plt.title(f"U - f Scatter Plot")
     plt.xlabel("f / Hz")
     plt.ylabel("U / V")
     plt.legend()
@@ -78,7 +77,6 @@ def draw_3_scatter_plot_2(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
         y_smooth = spl(x_new)
         plt.plot(x_new, y_smooth, label=f'{label} fit')
 
-    plt.title(f"Oscillation Scatter Plot")
     plt.xlabel("ω/ω0")
     plt.ylabel("I(ω)/I(ω0)")
     plt.legend()

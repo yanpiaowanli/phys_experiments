@@ -29,8 +29,6 @@ if __name__ == '__main__':
     at.draw_3_scatter_plot(csv_files, output_dir)
 
     csv_files = [
-        os.path.join(data_dir, '1-Ur.csv'),
-        os.path.join(data_dir, '2-Ur.csv'),
         os.path.join(data_dir, '3-Ur.csv')
     ]
     at.draw_3_scatter_plot(csv_files, output_dir)
