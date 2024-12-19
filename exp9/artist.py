@@ -62,9 +62,11 @@ def draw_3_scatter_plot_2(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
     """ Draw a scatter plot from multiple csv files """
     plt.figure()
 
+    i = 0
+    f = [510, 510, 500]
     for data_path in data_paths:
         data = pd.read_csv(data_path)
-        data['f'] = data['f'] / 500
+        data['f'] = data['f'] / f[i]
         data['Ur'] = data['Ur'] / data['Ur'].max()
 
         x = data.iloc[:, col_idx_x]
@@ -76,6 +78,8 @@ def draw_3_scatter_plot_2(data_paths, output_dir, col_idx_x=0, col_idx_y=1):
         spl = make_interp_spline(x, y, k=3)
         y_smooth = spl(x_new)
         plt.plot(x_new, y_smooth, label=f'{label} fit')
+
+        i += 1
 
     plt.xlabel("ω/ω0")
     plt.ylabel("I(ω)/I(ω0)")
